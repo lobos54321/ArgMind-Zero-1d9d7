@@ -1,0 +1,11 @@
+{
+  "name": "ArgMind PWA",
+  "short_name": "ArgMind",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    { "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjNGY0NmU1IiBkPSJNNDgwIDMySDMyQzE0LjMgMzIgMCA0Ni4zIDAgNjR2Mzg0YzAgMTcuNyAxNC4zIDMyIDMyIDMyaDQ0OGMxNy43IDAgMzItMTQuMyAzMi0zMlY2NGMwLTE3LjctMTQuMy0zMi0zMi0zMnptLTMyIDM4NEg2NFY5NmgzODR2MzIweiIvPjwvc3ZnPg==", "sizes": "512x512", "type": "image/svg+xml" }
+  ]
+}
