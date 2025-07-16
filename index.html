@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ArgMind PWA</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+  <style>
+    body{font-family:system-ui;margin:0;padding:1rem;background:#f7f7f7;color:#222}
+    header{background:#4f46e5;color:#fff;padding:.75rem 1rem;font-size:1.25rem}
+    #app{max-width:600px;margin:2rem auto;background:#fff;border-radius:8px;padding:1rem;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+    input,textarea{width:100%;padding:.5rem;border:1px solid #bbb;border-radius:4px;margin:.5rem 0}
+    button{background:#4f46e5;color:#fff;border:0;padding:.6rem 1rem;border-radius:4px;cursor:pointer}
+    .card{border-left:4px solid #4f46e5;padding:.5rem 1rem;margin:.5rem 0;background:#fafafa}
+  </style>
+</head>
+<body>
+  <header>ArgMind – 智能论证卡片</header>
+  <div id="app">
+    <h2>1️⃣ 输入内容</h2>
+    <textarea id="text" rows="6" placeholder="粘贴网页文字或笔记..."></textarea>
+    <button onclick="digest()">一键生成卡片</button>
+
+    <h2>2️⃣ 智能卡片</h2>
+    <div id="cards"></div>
+  </div>
+
+  <script>
+    async function digest() {
+      const txt = document.getElementById('text').value.trim();
+      if (!txt) return;
+
+      // 模拟 AI 返回
+      const card = {
+        title: txt.slice(0, 30) + '...',
+        claim: txt.split('。')[0],
+        supporting: [txt.slice(0, 50), txt.slice(50, 100)].filter(Boolean),
+        concepts: ['AI', '论证'],
+        questions: ['作者的核心假设是什么？', '有无反例？']
+      };
+
+      const html = `
+        <div class="card">
+          <strong>${card.title}</strong><br/>
+          <b>核心观点：</b>${card.claim}<br/>
+          <b>支撑论据：</b>${card.supporting.join('；')}<br/>
+          <b>关键词：</b>${card.concepts.join(', ')}<br/>
+          <b>启发问题：</b>${card.questions.join('；')}
+        </div>`;
+      document.getElementById('cards').insertAdjacentHTML('afterbegin', html);
+    }
+  </script>
+</body>
+</html>
